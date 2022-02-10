@@ -49,6 +49,21 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,       // Creates `style` nodes from JS strings
           "css-loader",                      // Translates CSS into CommonJS
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    "autoprefixer",
+                    {
+                      browsers:['ie >= 8', 'last 4 version']
+                    },
+                  ],
+                ],
+              },
+            },
+          },                      
           "sass-loader",                     // Compiles Sass to CSS
         ],
       },

@@ -12,9 +12,12 @@
   "author": "Vyacheslav Zverev",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.4.2",
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.4",
+    "postcss": "^8.4.6",
+    "postcss-loader": "^6.2.1",
     "pug": "^3.0.2",
     "pug-loader": "^2.4.0",
     "sass": "^1.43.4",
