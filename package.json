@@ -1,0 +1,27 @@
+{
+  "name": "simple-chat",
+  "version": "1.0.0",
+  "description": "test-case",
+  "main": "index.js",
+  "scripts": {
+    "start": "set NODE_ENV=development&&webpack serve --open",
+    "dev": "set NODE_ENV=development&&webpack --mode development",
+    "build": "set NODE_ENV=production&&webpack --mode production"
+  },
+  "keywords": [],
+  "author": "Vyacheslav Zverev",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.4",
+    "pug": "^3.0.2",
+    "pug-loader": "^2.4.0",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.3"
+  },
+  "dependencies": {}
+}
