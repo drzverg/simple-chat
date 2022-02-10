@@ -89,6 +89,15 @@
   }
 }
 
+.users__list {
+  @include box-sizing(border-box);
+  @include flex;
+  @include flex-direction(column);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .footer {
   @include box-sizing(border-box);
   min-height: 100px;
