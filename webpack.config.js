@@ -1,54 +1,55 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  target: 'web',
+  target: "web",
   entry: {
-    default: "./src/index.js"
+    default: "./src/index.js",
   },
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'docs'),
+    filename: "[name].js",
+    path: path.resolve(__dirname, "docs"),
     clean: true,
     assetModuleFilename: (pathData) => {
       const filepath = path
-      .dirname(pathData.filename)
-      .split("/")
-      .slice(1)
-      .join("/");
+        .dirname(pathData.filename)
+        .split("/")
+        .slice(1)
+        .join("/");
       return `${filepath}/[name][ext]`;
     },
   },
   devServer: {
     compress: true,
     static: {
-      directory: path.join(__dirname, 'src'),
+      directory: path.join(__dirname, "src"),
       watch: true,
     },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.pug'
+      template: "./src/index.pug",
+      inject: "body",
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: "[name].css",
     }),
   ],
   module: {
     rules: [
       {
         test: /\.pug$/,
-        loader: 'pug-loader',
+        loader: "pug-loader",
         options: {
-          pretty: true
-        }
+          pretty: true,
+        },
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,       // Creates `style` nodes from JS strings
-          "css-loader",                      // Translates CSS into CommonJS
+          MiniCssExtractPlugin.loader, // Creates `style` nodes from JS strings
+          "css-loader", // Translates CSS into CommonJS
           {
             loader: "postcss-loader",
             options: {
@@ -57,14 +58,14 @@ module.exports = {
                   [
                     "autoprefixer",
                     {
-                      browsers:['ie >= 8', 'last 4 version']
+                      browsers: ["ie >= 8", "last 4 version"],
                     },
                   ],
                 ],
               },
             },
-          },                      
-          "sass-loader",                     // Compiles Sass to CSS
+          },
+          "sass-loader", // Compiles Sass to CSS
         ],
       },
       {
@@ -73,12 +74,12 @@ module.exports = {
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
-    ]
-  }
+    ],
+  },
 };
